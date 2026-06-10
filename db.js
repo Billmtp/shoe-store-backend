@@ -1,3 +1,11 @@
+console.log("HOST:", process.env.DB_HOST);
+console.log("PORT:", process.env.DB_PORT);
+
+const dns = require("dns");
+
+dns.lookup(process.env.DB_HOST, (err, address) => {
+  console.log("DNS TEST:", err || address);
+});
 require("dotenv").config();
 
 const mysql = require("mysql2");
