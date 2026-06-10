@@ -1,3 +1,7 @@
+console.log("HOST =", process.env.DB_HOST);
+console.log("PORT =", process.env.DB_PORT);
+console.log("USER =", process.env.DB_USER);
+console.log("DB =", process.env.DB_NAME);
 require("dotenv").config();
 
 const mysql = require("mysql2");
