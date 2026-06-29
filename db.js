@@ -1,11 +1,3 @@
-console.log("HOST:", process.env.DB_HOST);
-console.log("PORT:", process.env.DB_PORT);
-
-const dns = require("dns");
-
-dns.lookup(process.env.DB_HOST, (err, address) => {
-  console.log("DNS TEST:", err || address);
-});
 require("dotenv").config();
 
 const mysql = require("mysql2");
@@ -16,11 +8,9 @@ const db = mysql.createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-
   ssl: {
     rejectUnauthorized: false,
   },
-
   connectTimeout: 10000,
 });
 
@@ -29,7 +19,6 @@ db.connect((err) => {
     console.error("Lỗi kết nối:", err);
     return;
   }
-
   console.log("Đã kết nối MySQL");
 });
 
